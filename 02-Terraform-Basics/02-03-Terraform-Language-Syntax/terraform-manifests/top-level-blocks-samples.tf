@@ -1,11 +1,11 @@
 #####################################################################
 # Block-1: Terraform Settings Block
 terraform {
-  required_version = ">= 1.6.0"
+  required_version = " ~> 1.13.0"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 5.31"
+      version = ">= 6.12.0"
     }
   }
   # Adding Backend as S3 for Remote State Storage with State Locking
@@ -91,7 +91,7 @@ module "ec2_cluster" {
 
   ami                    = data.aws_ami.amzlinux.id
   instance_type          = "t2.micro"
-  key_name               = "terraform-key"
+  key_name               = "rohit_ec2"
   monitoring             = true
   vpc_security_group_ids = ["sg-08b25c5a5bf489ffa"]  # Get Default VPC Security Group ID and replace
   subnet_id              = "subnet-4ee95470" # Get one public subnet id from default vpc and replace

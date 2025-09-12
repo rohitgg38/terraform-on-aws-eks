@@ -47,7 +47,7 @@ variable "instance_type" {
 variable "instance_keypair" {
   description = "AWS EC2 Key pair that need to be associated with EC2 Instance"
   type = string
-  default = "terraform-key"
+  default = "rohit_ec2"
 }
 ```
 - Reference the variables in respective `.tf`fies
@@ -128,7 +128,7 @@ data "aws_ami" "amzlinux2" {
   owners = [ "amazon" ]
   filter {
     name = "name"
-    values = [ "amzn2-ami-hvm-*-gp2" ]
+    values = [ "al2023-ami-20*" ]
   }
   filter {
     name = "root-device-type"
